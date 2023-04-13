@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
     host: true,
     proxy: {
-      // Proxy all requests starting with /api to http://localhost:3006
+      // Proxy all requests starting with /api to http://localhost:3005
       "/api": {
         target: "http://localhost:3005",
         changeOrigin: true,
