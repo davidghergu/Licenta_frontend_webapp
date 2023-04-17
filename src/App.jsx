@@ -9,6 +9,7 @@ import Lounge from "./components/Lounge";
 import LinkPage from "./components/LinkPage";
 import RequireAuth from "./components/RequireAuth";
 import Vaci from "./components/Vaci";
+import Navbar from "./components/Navbar"
 
 import { Routes, Route } from "react-router-dom";
 const ROLES = {
@@ -17,6 +18,8 @@ const ROLES = {
 };
 function App() {
   return (
+    <div className="h-full ">
+    <Navbar /> 
     <Routes>
       <Route path="/" element={<Layout />}>
         {/* public routes */}
@@ -46,6 +49,8 @@ function App() {
         <Route path="*" element={<Missing />} />
       </Route>
     </Routes>
+    </div>
+    
   );
 }
 
