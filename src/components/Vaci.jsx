@@ -3,7 +3,10 @@ import DataTable from "datatables.net-dt";
 import React, { useEffect, useRef } from "react";
 import "datatables.net-select-dt";
 import RequireAuth from "./RequireAuth";
-import { useState } from "react";
+import { useState} from "react";
+
+
+//TODO  Randamentu sa fie calculat din Greutate/Varsta *********************************
 
 import $ from "jquery";
 import "datatables.net";
@@ -94,23 +97,17 @@ const Vaci = () => {
         
       </table>
       </div>
+      <div className="place-content-around bg-green-500 w-full flex ">
+          <button className="bg-blue-500 bg-center place-content-center hover:bg-blue-700  text-white font-bold py-2 px-4  mt-6 rounded">
+             Button
+          </button>
+          <button className="bg-blue-500 bg-center place-content-center hover:bg-blue-700  text-white font-bold py-2 px-4  mt-6 rounded">
+             Button
+          </button>
+      </div>
     </section>
   );
 };
 
 export default Vaci;
 
-// const Vaci = () => {
-//   return (
-//     <section>
-//       <h1>Vitele</h1>
-//       <br />
-//       <p>You must have been assigned an Admin role.</p>
-//       <div className="flexGrow">
-//         <Link to="/">Home</Link>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Vaci;
