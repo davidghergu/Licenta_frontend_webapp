@@ -11,6 +11,7 @@ import RequireAuth from "./components/RequireAuth";
 import Vaci from "./components/Vaci";
 import Navbar from "./components/Navbar"
 import VaciFormular from "./components/VaciFormular";
+import Cereale from "./components/Cereale";
 
 import { Routes, Route } from "react-router-dom";
 const ROLES = {
@@ -29,6 +30,7 @@ function App() {
         <Route path="linkpage" element={<LinkPage />} />
         <Route path="unauthorized" element={<Unauthorized />} />
         <Route path="vaci" element={<Vaci />} />
+        <Route path="cereale" element={<Cereale />} />
         <Route path="vaciformular" element={<VaciFormular/>} />
 
         {/* we want to protect these routes */}

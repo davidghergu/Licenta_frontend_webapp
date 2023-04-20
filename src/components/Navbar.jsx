@@ -22,12 +22,12 @@ function Navbar() {
         <div className="flex items-center mx-6 space-x-6 text-xs text-white whitespace-nowrap">
           
           <div className="link">
-            <p ><Link to="lounge">Lounge</Link></p>
+            <p ><Link to="Vaci" className="font-extrabold md:text-lg ">Vite</Link></p>
             
           </div>
           <div className="link">
-            <p>vitelusi</p>
-            <p className="font-extrabold md:text-sm">& Orders</p>
+            <p ><Link to="Cereale" className="font-extrabold md:text-lg ">Cereale</Link></p>
+            
           </div>
           <div className="link">
             <p>Retrurns</p>
