@@ -7,6 +7,8 @@ import { useState} from "react";
 
 
 //TODO  Randamentu sa fie calculat din Greutate/Varsta *********************************
+//TODO  La Formular CUM sa adaug DIETA?!?
+//TODO  Varsta vacilor sa fie in nr de luni
 
 import $ from "jquery";
 import "datatables.net";
@@ -97,13 +99,17 @@ const Vaci = () => {
         
       </table>
       </div>
-      <div className="place-content-around bg-green-500 w-full flex ">
-          <button className="bg-blue-500 bg-center place-content-center hover:bg-blue-700  text-white font-bold py-2 px-4  mt-6 rounded">
-             Button
+      <div className="place-content-around  w-full flex ">
+        <a href="/VaciFormular">
+          <button href="/VaciFormular" className="bg-slate-400 bg-center place-content-center hover:bg-slate-700  text-white font-bold py-2 px-4  mt-6 rounded">
+             Adauga animale
           </button>
-          <button className="bg-blue-500 bg-center place-content-center hover:bg-blue-700  text-white font-bold py-2 px-4  mt-6 rounded">
-             Button
+          </a>
+          <button className="bg-slate-400 bg-center place-content-center hover:bg-slate-700  text-white font-bold py-2 px-4  mt-6 rounded">
+             Modifica animale
           </button>
+          {/*  Sa aleg un animal si sa ii modific dieta sau sa ii adaug o dieta */}
+         
       </div>
     </section>
   );
