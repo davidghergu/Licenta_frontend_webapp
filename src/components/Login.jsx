@@ -3,9 +3,6 @@ import useAuth from "../hooks/useAuth";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const LOGIN_URL = "/api/login";
-//const LOGIN_URL = ".../Incercare_Licenta/backend/index.js";
-//const LOGIN_URL="../Incercare_Licenta/backend/index"
-//const LOGIN_URL = "http://localhost:3005/api/login"
 
 const Login = () => {
   const { setAuth } = useAuth();

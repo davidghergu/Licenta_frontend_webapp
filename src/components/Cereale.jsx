@@ -44,7 +44,7 @@ const Cereale = () => {
         <div className="table-cell text-center py-8 bg-teal-400 w-1/3 mx-4 rounded-md text-slate-700 drop-shadow-2xl text-xl">Avem la dispozitie <br/>{cereale.length}<br/> cereale</div>
         
         <div className="table-cell text-center  py-8 bg-teal-500 w-1/3 mx-4 rounded-md text-slate-800 drop-shadow-2xl text-xl">Cantitate totala  <br/>{totalWeight} KG</div>
-        <div className="table-cell text-center  py-8 bg-teal-400 w-1/3 mx-4 rounded-md text-slate-700 drop-shadow-2xl text-xl">Cantitate medie totala <br/>{averageWeight} KG</div>
+        <div className="table-cell text-center  py-8 bg-teal-400 w-1/3 mx-4 rounded-md text-slate-700 drop-shadow-2xl text-xl">Cantitate medie <br/>{averageWeight} KG</div>
       </div>
       <div className="table w-full h-12"> </div>
       
