@@ -1,9 +1,13 @@
-import { Link } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useEffect, useRef,useState } from "react";
 
-const LOGIN_URL = "/api/cow";
+
 
 const VaciFormular = () => {
+
+    const API_URL_VACA = "/api/cow";
+    const API_URL="api/dieta"
+    const [diete, setDiete]=useState([])
+    const [isLoading, setIsLoading] = useState(true);
 
   const [formValues, setFormValues] = useState({
     numar_crotalii: '',
@@ -11,13 +15,28 @@ const VaciFormular = () => {
     sex: 'M',
     rasa: '',
     varsta: '',
-    masa_corporala: ''
+    masa_corporala: '',
+    dieta: '641c2d20157eb1678f02dd20'
   });
+
+  useEffect(() => {
+      fetch(API_URL)
+      .then((response) => response.json())
+      .then(function(data){
+        setDiete(Array.isArray(data) ? data : []);
+        setIsLoading(false);
+        
+      } );
+  
+      
+    },[]);
+
+    console.log(diete)
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formValues)
-    fetch(LOGIN_URL, {
+    fetch(API_URL_VACA, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -78,8 +97,8 @@ const VaciFormular = () => {
       </label>
       <div className="relative">
         <select name="sex" id="sex" value={formValues.sex} onChange={handleChange} className="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" >
-          <option value="M">M</option>
-          <option value="F">F</option>
+          <option key="M" value="M">M</option>
+          <option key="F" value="F">F</option>
           
         </select>
         <div className="pointer-events-none absolute inset-y-0 right-0   items-center px-2 text-gray-700">
@@ -93,16 +112,36 @@ const VaciFormular = () => {
       </label>
       <div className="relative">
         <select name="categorie" id="categorie" value={formValues.categorie} onChange={handleChange} className="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" >
-          <option value="Mama">Mama</option>
-          <option value="Taur">Taur</option>
-          <option value="Vitel Tanar">Vitel Tanar</option>
-          <option value="Vitel pe ingrasare">Vitel pe ingrasare</option>
-          <option value="Juninca">Juninca</option>
+          <option key="Mama" value="Mama">Mama</option>
+          <option key="Taur" value="Taur">Taur</option>
+          <option key="VitelTanar" value="Vitel Tanar">Vitel Tanar</option>
+          <option key="VitelIngrasare" value="Vitel pe ingrasare">Vitel pe ingrasare</option>
+          <option key="Juninca" value="Juninca">Juninca</option>
         </select>
         <div className="pointer-events-none absolute inset-y-0 right-0   items-center px-2 text-gray-700">
           <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
         </div>
       </div>
+
+      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-state">
+  Dieta
+</label>
+<div className="relative">
+  <select name="dieta" id="dieta" value={formValues.dieta} onChange={handleChange} className="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" >
+    {diete.map((dieta) => (
+      <option key={dieta._id} value={dieta._id}>{dieta.nume}</option>
+    ))}
+  </select>
+  <div className="pointer-events-none absolute inset-y-0 right-0   items-center px-2 text-gray-700">
+    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+  </div>
+</div>
+
+
+
+    </div>
+    <div>
+
     </div>
   </div>
   <button  type="submit" className="bg-blue-500 bg-center place-content-center hover:bg-blue-700  text-white font-bold py-2 px-4  mt-6 rounded">

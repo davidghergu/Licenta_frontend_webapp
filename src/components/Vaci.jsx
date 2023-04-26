@@ -15,24 +15,49 @@ import "datatables.net";
 
 const Vaci = () => {
   const [cows, setCows] = useState([]);
+  const [diete, setDiete]=useState([])
   const [isLoading, setIsLoading] = useState(true);
   const API_URL = "/api/cow";
+  const API_URL2="/api/dieta"
   const tableRef = useRef(null);
 
-  useEffect(() => {
-    fetch(API_URL)
-    .then((response) => response.json())
-    .then(function(data){
-      setCows(Array.isArray(data) ? data : []);
-      setIsLoading(false);
-      console.log(data[0].dieta.nume);
-      console.log(cows);
-    } );
+  // useEffect(() => {
+  //   fetch(API_URL)
+  //   .then((response) => response.json())
+  //   .then(function(data){
+  //     setCows(Array.isArray(data) ? data : []);
+  //     setIsLoading(false);
+  //     console.log(data[0].dieta.nume);
+  //     console.log(cows);
+  //   } );
 
-    // if (tableRef.current&& !isLoading) {
-    //   $(tableRef.current).DataTable();
-    // }
-  },[]);
+    
+  // },[]);
+
+  useEffect(() => {
+    Promise.all([fetch(API_URL), fetch(API_URL2)])
+      .then(([response1, response2]) => Promise.all([response1.json(), response2.json()]))
+      .then(([data1, data2]) => {
+        // Update state with both data sets
+        setCows(Array.isArray(data1) ? data1 : []);
+        setDiete(Array.isArray(data2) ? data2 : []);
+        setIsLoading(false);
+        // console.log(data1[0].dieta.nume);
+        // console.log(data2);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }, []);
+
+  console.log(diete)
+
+
+
+
+
+
+
 
   const totalWeight = cows.reduce((sum, cow) => sum + cow.masa_corporala, 0);
   const averageWeight = Math.floor(totalWeight / cows.length);
@@ -42,8 +67,9 @@ const Vaci = () => {
 
 
   return (
-    <section >
-      <div >
+    
+    <section style={{ overflowY: 'scroll', height: '730px' }} >
+      <div  >
       <h1 className="text-center">Vitele</h1>
       <br />
       
@@ -92,7 +118,7 @@ const Vaci = () => {
               <td className="border border-slate-300 px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">{cow.varsta}</td>
               <td className="border border-slate-300 px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">{cow.masa_corporala}</td>
               <td className="border border-slate-300 px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">{cow.randament}</td>
-              <td className="border border-slate-300 px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">{cow.dieta.nume}</td>
+              <td className="border border-slate-300 px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">{cow.dieta ? cow.dieta.nume : ''}</td>
             </tr> ))}</tbody>
         )}
         
@@ -111,6 +137,7 @@ const Vaci = () => {
          
       </div>
     </section>
+   
   );
 };
 
