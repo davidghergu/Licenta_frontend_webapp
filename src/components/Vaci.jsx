@@ -4,10 +4,8 @@ import React, { useEffect, useRef } from "react";
 import "datatables.net-select-dt";
 import RequireAuth from "./RequireAuth";
 import { useState} from "react";
+import ModalModifAnimale from "./ModalModifAnimale";
 
-
-//TODO  Randamentu sa fie calculat din Greutate/Varsta *********************************
-//TODO  La Formular CUM sa adaug DIETA?!?
 //TODO  Varsta vacilor sa fie in nr de luni
 
 import $ from "jquery";
@@ -16,46 +14,38 @@ import "datatables.net";
 const Vaci = () => {
   const [cows, setCows] = useState([]);
   const [diete, setDiete]=useState([])
+  const [selectedCow, setSelectedCow] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const API_URL = "/api/cow";
   const API_URL2="/api/dieta"
   const tableRef = useRef(null);
 
-  // useEffect(() => {
-  //   fetch(API_URL)
-  //   .then((response) => response.json())
-  //   .then(function(data){
-  //     setCows(Array.isArray(data) ? data : []);
-  //     setIsLoading(false);
-  //     console.log(data[0].dieta.nume);
-  //     console.log(cows);
-  //   } );
+  const [modalOpen, setModalOpen] = useState(false);
 
-    
-  // },[]);
+  const handleButtonClick = (cow) => {
+    setSelectedCow(cow);
+    setModalOpen(true);
+  };
+  
+    const handleCloseModal = () => {
+      setModalOpen(false);
+    };
+
 
   useEffect(() => {
     Promise.all([fetch(API_URL), fetch(API_URL2)])
       .then(([response1, response2]) => Promise.all([response1.json(), response2.json()]))
       .then(([data1, data2]) => {
-        // Update state with both data sets
+        
         setCows(Array.isArray(data1) ? data1 : []);
         setDiete(Array.isArray(data2) ? data2 : []);
         setIsLoading(false);
-        // console.log(data1[0].dieta.nume);
-        // console.log(data2);
+    
       })
       .catch(error => {
         console.error('Error:', error);
       });
   }, []);
-
-  console.log(diete)
-
-
-
-
-
 
 
 
@@ -65,12 +55,14 @@ const Vaci = () => {
   const totalVarsta=cows.reduce((sum,cow)=> sum+cow.varsta,0)
   const averageVarsta=totalVarsta/cows.length
 
+  
+
 
   return (
     
-    <section style={{ overflowY: 'scroll', height: '730px' }} >
+    <section style={{ overflowY: 'auto', maxHeight: '730px' }}>
       <div  >
-      <h1 className="text-center">Vitele</h1>
+      
       <br />
       
       <div className="flex  w-full  font-bold">
@@ -101,11 +93,14 @@ const Vaci = () => {
               Randament</th>
             <th className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase ">
               Dieta</th>
+
+              <th className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase ">
+              Selectie</th>
           </tr>
         </thead>
         
         {isLoading ? (
-        <tbody><tr><td>ASDASD</td></tr></tbody>
+        <tbody><tr><td>Loading</td></tr></tbody>
       ) : (
         <tbody className="divide-y divide-gray-200">
           {cows.map((cow) => (
@@ -117,8 +112,15 @@ const Vaci = () => {
               <td className="border border-slate-300 px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">{cow.rasa}</td>
               <td className="border border-slate-300 px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">{cow.varsta}</td>
               <td className="border border-slate-300 px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">{cow.masa_corporala}</td>
-              <td className="border border-slate-300 px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">{cow.randament}</td>
+              <td className="border border-slate-300 px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">{(cow.masa_corporala/(cow.varsta*12)).toFixed(1)}</td>
               <td className="border border-slate-300 px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">{cow.dieta ? cow.dieta.nume : ''}</td>
+              <td className="border border-slate-300 px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+              <button className="bg-slate-400 bg-center place-content-center hover:bg-slate-700  text-white font-bold py-2 px-4 mt-6 rounded" onClick={() => handleButtonClick(cow)}>
+              O PIX
+              </button>
+              
+              
+              </td>
             </tr> ))}</tbody>
         )}
         
@@ -126,15 +128,21 @@ const Vaci = () => {
       </div>
       <div className="place-content-around  w-full flex ">
         <a href="/VaciFormular">
-          <button href="/VaciFormular" className="bg-slate-400 bg-center place-content-center hover:bg-slate-700  text-white font-bold py-2 px-4  mt-6 rounded">
+          <button className="bg-slate-400 bg-center place-content-center hover:bg-slate-700  text-white font-bold py-2 px-4  mt-6 rounded">
              Adauga animale
           </button>
+          
           </a>
-          <button className="bg-slate-400 bg-center place-content-center hover:bg-slate-700  text-white font-bold py-2 px-4  mt-6 rounded">
-             //Modifica animale
-          </button>
-          {/*  Sa aleg un animal si sa ii modific dieta sau sa ii adaug o dieta */}
-         
+        <a >
+    
+
+          <button 
+  className="bg-slate-400 bg-center place-content-center hover:bg-slate-700 text-white font-bold py-2 px-4 mt-6 rounded">
+  Modifica animale 
+   </button>{modalOpen && <ModalModifAnimale onClose={handleCloseModal} cow={selectedCow} />}
+
+          </a>
+          
       </div>
     </section>
    

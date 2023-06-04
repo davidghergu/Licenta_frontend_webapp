@@ -18,17 +18,17 @@ const Lounge = () => {
             food truck ugh squid celiac humblebrag.
           </p>
         </div>
-        <div className="flex flex-wrap">
-          <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-            <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
-              Vite
+        <div className="flex flex-wrap ">
+          <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2  border border-gray-500 p-4 rounded-lg text-center">
+            <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2 mx-auto">
+              Parcelă 1
             </h2>
             <p className="leading-relaxed text-base mb-4">
               Fingerstache flexitarian street art 8-bit waistcoat. Distillery
               hexagon disrupt edison bulbche.
             </p>
             <a className="text-green-500 inline-flex items-center" href="Vaci">
-              Learn More
+              Modifică
               <svg
                 fill="none"
                 stroke="currentColor"
@@ -44,7 +44,7 @@ const Lounge = () => {
           </div>
           <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
             <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
-              Cereale
+            Parcelă 2
             </h2>
             <p className="leading-relaxed text-base mb-4">
               Fingerstache flexitarian street art 8-bit waistcoat. Distillery
@@ -67,7 +67,7 @@ const Lounge = () => {
           </div>
           <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
             <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
-              Angajati
+            Parcelă 3
             </h2>
             <p className="leading-relaxed text-base mb-4">
               Fingerstache flexitarian street art 8-bit waistcoat. Distillery
@@ -90,7 +90,7 @@ const Lounge = () => {
           </div>
           <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
             <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
-              Servicii
+            Parcelă 4
             </h2>
             <p className="leading-relaxed text-base mb-4">
               Fingerstache flexitarian street art 8-bit waistcoat. Distillery
@@ -114,7 +114,7 @@ const Lounge = () => {
         </div>
         <Link to="/">
           <button className="flex mx-auto mt-16 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">
-            Login-san
+            Login
           </button>
         </Link>
       </div>
