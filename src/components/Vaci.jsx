@@ -1,14 +1,16 @@
-import { Link } from "react-router-dom";
-import DataTable from "datatables.net-dt";
+
 import React, { useEffect, useRef } from "react";
 import "datatables.net-select-dt";
-import RequireAuth from "./RequireAuth";
+
+
+
+
 import { useState} from "react";
 import ModalModifAnimale from "./ModalModifAnimale";
 
 //TODO  Varsta vacilor sa fie in nr de luni
 
-import $ from "jquery";
+
 import "datatables.net";
 
 const Vaci = () => {
@@ -115,8 +117,11 @@ const Vaci = () => {
               <td className="border border-slate-300 px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">{(cow.masa_corporala/(cow.varsta*12)).toFixed(1)}</td>
               <td className="border border-slate-300 px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">{cow.dieta ? cow.dieta.nume : ''}</td>
               <td className="border border-slate-300 px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+              
+
+              
               <button className="bg-slate-400 bg-center place-content-center hover:bg-slate-700  text-white font-bold py-2 px-4 mt-6 rounded" onClick={() => handleButtonClick(cow)}>
-              O PIX
+              Modifica
               </button>
               
               
@@ -127,21 +132,21 @@ const Vaci = () => {
       </table>
       </div>
       <div className="place-content-around  w-full flex ">
-        <a href="/VaciFormular">
+        {/* <a href="/VaciFormular">
           <button className="bg-slate-400 bg-center place-content-center hover:bg-slate-700  text-white font-bold py-2 px-4  mt-6 rounded">
              Adauga animale
           </button>
           
-          </a>
-        <a >
-    
+          </a> */}
 
-          <button 
-  className="bg-slate-400 bg-center place-content-center hover:bg-slate-700 text-white font-bold py-2 px-4 mt-6 rounded">
-  Modifica animale 
-   </button>{modalOpen && <ModalModifAnimale onClose={handleCloseModal} cow={selectedCow} />}
-
-          </a>
+<a href="/VaciFormular">
+  <button className="bg-green-400 bg-center place-content-center hover:bg-green-500 text-white font-bold py-2 px-4 mt-6 rounded">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-10 w-10">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+    </svg>
+  </button>
+</a>
+       
           
       </div>
     </section>

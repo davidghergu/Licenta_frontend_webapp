@@ -26,7 +26,7 @@ const Cereale = () => {
 
    
   },[]);
-  console.log(cereale);
+   //console.log(cereale);
 
    const totalWeight = cereale.reduce((sum, cereala) => sum + cereala.cantitateTotala, 0);
    const averageWeight = Math.floor(totalWeight / cereale.length);
@@ -68,7 +68,7 @@ const Cereale = () => {
         </thead>
         
         {isLoading ? (
-        <tbody><tr><td>ASDASD</td></tr></tbody>
+        <tbody><tr><td>Loading...</td></tr></tbody>
       ) : (
         <tbody className="divide-y divide-gray-200">
           {cereale.map((cereala) => (
@@ -87,15 +87,22 @@ const Cereale = () => {
       </table>
       </div>
       <div className="place-content-around  w-full flex ">
-        <a href="/VaciFormular">
-          <button href="/VaciFormular" className="bg-slate-400 bg-center place-content-center hover:bg-slate-700  text-white font-bold py-2 px-4  mt-6 rounded">
+
+      <a href="/CerealeFormular">
+  <button className="bg-teal-400 bg-center place-content-center hover:bg-teal-500 text-white font-bold py-2 px-4 mt-6 rounded">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-10 w-10">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+    </svg>
+  </button>
+</a>
+
+
+        {/* <a href="/CerealeFormular">
+          <button href="/CerealeFormular" className="bg-slate-400 bg-center place-content-center hover:bg-slate-700  text-white font-bold py-2 px-4  mt-6 rounded">
              Adauga cereale
           </button>
-          </a>
-          <button className="bg-slate-400 bg-center place-content-center hover:bg-slate-700  text-white font-bold py-2 px-4  mt-6 rounded">
-             //Modifica animale
-          </button>
-          {/*  Sa aleg un animal si sa ii modific dieta sau sa ii adaug o dieta */}
+          </a> */}
+         
          
       </div>
 

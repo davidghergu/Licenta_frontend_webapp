@@ -14,6 +14,8 @@ import VaciFormular from "./components/VaciFormular";
 import Cereale from "./components/Cereale";
 
 import { Routes, Route } from "react-router-dom";
+import CerealeFormular from "./components/CerealeFormular";
+
 const ROLES = {
   User: "Angajat",
   Admin: "Admin",
@@ -32,6 +34,7 @@ function App() {
         <Route path="vaci" element={<Vaci />} />
         <Route path="cereale" element={<Cereale />} />
         <Route path="vaciformular" element={<VaciFormular/>} />
+        <Route path="cerealeformular" element={<CerealeFormular/>} />
 
         {/* we want to protect these routes */}
         <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>

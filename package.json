@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
     "axios": "^1.3.4",
     "datatables.net-dt": "^1.13.4",
     "datatables.net-select-dt": "^1.6.2",

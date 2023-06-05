@@ -44,7 +44,12 @@ const VaciFormular = () => {
       body: JSON.stringify(formValues)
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+      console.log(data);
+      
+
+      window.location.href = "/Vaci";
+    })
     .catch(error => console.error(error));
   }
 
@@ -144,9 +149,11 @@ const VaciFormular = () => {
 
     </div>
   </div>
+ 
   <button  type="submit" className="bg-blue-500 bg-center place-content-center hover:bg-blue-700  text-white font-bold py-2 px-4  mt-6 rounded">
              Adauga Vaca
           </button>
+ 
 </form>
 
 </div>

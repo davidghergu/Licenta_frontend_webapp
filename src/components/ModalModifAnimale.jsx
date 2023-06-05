@@ -37,7 +37,8 @@ const handleChange = (event) => {
   
     const handleFormSubmit = (event) => {
       event.preventDefault();
-      // Perform login form submission logic
+     
+
       console.log(formValues);
       console.log(formValues);
       // fetch(API_URL_VACA, {
@@ -50,6 +51,21 @@ const handleChange = (event) => {
       // .then(response => response.json())
       // .then(data => console.log(data))
       // .catch(error => console.error(error));
+        fetch(API_URL_VACA, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formValues)
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          window.location.reload(); // Refresh the page
+        })
+        .catch(error => console.error(error));
+      
+    
 
     };
   
