@@ -1,6 +1,30 @@
 import { Link } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
+import { useState} from "react";
 
 const Lounge = () => {
+  const tableRef = useRef(null);
+  const [cows, setCows] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const API_URL = "/api/cow";
+
+
+  useEffect(() => {
+    fetch(API_URL)
+      .then(response => response.json())
+      .then(data => {
+        setCows(Array.isArray(data) ? data : []);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }, []);
+  
+
+
+
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto">
@@ -9,7 +33,7 @@ const Lounge = () => {
             Beef+
           </h2>
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
-            Master Cleanse Reliac Heirloom
+            Status Fermă
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
             Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
@@ -19,14 +43,24 @@ const Lounge = () => {
           </p>
         </div>
         <div className="flex flex-wrap ">
-          <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2  border border-gray-500 p-4 rounded-lg text-center">
+          <div className="xl:w-1/3 lg:w-1/2 md:w-full px-8 py-6 border-l-2  border border-gray-500 p-4 rounded-lg text-center">
             <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2 mx-auto">
-              Parcelă 1
+              Îngrășare
             </h2>
-            <p className="leading-relaxed text-base mb-4">
-              Fingerstache flexitarian street art 8-bit waistcoat. Distillery
-              hexagon disrupt edison bulbche.
-            </p>
+            
+            <div ref={tableRef} className="min-w-full divide-y divide-gray-200 p-8">
+  {isLoading ? (
+    <p>Loading</p>
+  ) : (
+    <div className="divide-y divide-gray-200">
+      <div className="trBody">
+        <p>{cows.filter(cow => cow.dieta._id === "641c2d20157eb1678f02dd20").length}</p>
+      </div>
+    </div>
+  )}
+</div>
+
+
             <a className="text-green-500 inline-flex items-center" href="Vaci">
               Modifică
               <svg
@@ -42,14 +76,21 @@ const Lounge = () => {
               </svg>
             </a>
           </div>
-          <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
+          <div className="xl:w-1/3 lg:w-1/2 md:w-full px-8 py-6 border-l-2  border border-gray-500 p-4 rounded-lg text-center">
             <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
-            Parcelă 2
+            Mentinere
             </h2>
-            <p className="leading-relaxed text-base mb-4">
-              Fingerstache flexitarian street art 8-bit waistcoat. Distillery
-              hexagon disrupt edison bulbche.
-            </p>
+            <div ref={tableRef} className="min-w-full divide-y divide-gray-200 p-8">
+  {isLoading ? (
+    <p>Loading</p>
+  ) : (
+    <div className="divide-y divide-gray-200">
+      <div className="trBody">
+        <p>{cows.filter(cow => cow.dieta._id === "641c2d29157eb1678f02dd22").length}</p>
+      </div>
+    </div>
+  )}
+</div>
             <a className="text-green-500 inline-flex items-center">
               Learn More
               <svg
@@ -65,14 +106,21 @@ const Lounge = () => {
               </svg>
             </a>
           </div>
-          <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
+          <div className="xl:w-1/3 lg:w-1/2 md:w-full px-8 py-6 border-l-2  border border-gray-500 p-4 rounded-lg text-center">
             <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
-            Parcelă 3
+            Alaptare
             </h2>
-            <p className="leading-relaxed text-base mb-4">
-              Fingerstache flexitarian street art 8-bit waistcoat. Distillery
-              hexagon disrupt edison bulbche.
-            </p>
+            <div ref={tableRef} className="min-w-full divide-y divide-gray-200 p-8">
+  {isLoading ? (
+    <p>Loading</p>
+  ) : (
+    <div className="divide-y divide-gray-200">
+      <div className="trBody">
+        <p>{cows.filter(cow => cow.dieta._id === "641c2d54157eb1678f02dd24").length}</p>
+      </div>
+    </div>
+  )}
+</div>
             <a className="text-green-500 inline-flex items-center">
               Learn More
               <svg
@@ -88,29 +136,7 @@ const Lounge = () => {
               </svg>
             </a>
           </div>
-          <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-            <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
-            Parcelă 4
-            </h2>
-            <p className="leading-relaxed text-base mb-4">
-              Fingerstache flexitarian street art 8-bit waistcoat. Distillery
-              hexagon disrupt edison bulbche.
-            </p>
-            <a className="text-green-500 inline-flex items-center">
-              Learn More
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-4 h-4 ml-2"
-                viewBox="0 0 24 24"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
+          
         </div>
         <Link to="/">
           <button className="flex mx-auto mt-16 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">

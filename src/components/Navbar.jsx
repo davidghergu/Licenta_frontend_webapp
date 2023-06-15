@@ -5,13 +5,14 @@ function Navbar() {
   return (
     <header>
       <div className="flex items-center flex-grow p-1 py-2 bg-green-400">
-        <Link href="/">
+        <Link to="Lounge">
           <div className="flex items-center flex-grow mt-2 sm:flex-grow-0">
             <img
               className="object-contain px-4 cursor-pointer"
-              src="https://links.papareact.com/f90"
-              width={150}
-              height={40}
+              //src="https://links.papareact.com/f90"
+              src="src\components\LogoSteak.png"
+              width={75}
+              height={50}
               alt=""
             />
           </div>

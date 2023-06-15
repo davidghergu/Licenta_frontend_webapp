@@ -26,7 +26,7 @@ const Vaci = () => {
 
   const handleButtonClick = (cow) => {
     setSelectedCow(cow);
-    setModalOpen(true);
+    setModalOpen(true)
   };
   
     const handleCloseModal = () => {
