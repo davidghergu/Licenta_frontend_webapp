@@ -61,7 +61,7 @@ const handleChange = (event) => {
         .then(response => response.json())
         .then(data => {
           console.log(data);
-          window.location.reload(); // Refresh the page
+          window.location.reload(); // Refresh paginii
         })
         .catch(error => console.error(error));
       
@@ -71,7 +71,7 @@ const handleChange = (event) => {
   
     const handleClose = () => {
       setIsModalOpen(false);
-      setTimeout(onClose, 300); // Wait for the animation to finish before closing the modal
+      setTimeout(onClose, 300); 
     };
   
     const handleOverlayClick = (event) => {
@@ -87,7 +87,7 @@ const handleChange = (event) => {
         }`}
       >
         <div
-          className="fixed inset-0 bg-gray-500 bg-opacity-75"
+          className="fixed inset-0 bg-gray-500 bg-opacity-50"
           onClick={handleOverlayClick}
         ></div>
         <div className="overflow-hidden transition-transform duration-1000 ease-out transform bg-white rounded-lg">

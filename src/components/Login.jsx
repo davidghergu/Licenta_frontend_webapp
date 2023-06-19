@@ -5,7 +5,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 const LOGIN_URL = "/api/login";
 
 const Login = () => {
-  const { setAuth } = useAuth();
+  const { setAuth,persist,setPersist } = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -29,14 +29,13 @@ const Login = () => {
         headers: { "Content-Type": "application/json" },
       });
       const utiliz = await response.json();
-      console.log(utiliz);
       const token = utiliz[0]._id;
-      console.log(token);
       const roles = [utiliz[0].rol];
       setAuth({ user, password, roles, token });
       console.log({ user, password, roles, token });
       setUser("");
       setPwd("");
+      sessionStorage.setItem("user",{user,roles,token});
       navigate("/lounge");
     } catch (err) {
       if (!err?.response) {

@@ -26,6 +26,7 @@ const Vaci = () => {
 
   const handleButtonClick = (cow) => {
     setSelectedCow(cow);
+    console.log(cow)
     setModalOpen(true)
   };
   
@@ -57,12 +58,13 @@ const Vaci = () => {
   const totalVarsta=cows.reduce((sum,cow)=> sum+cow.varsta,0)
   const averageVarsta=totalVarsta/cows.length
 
+  const sectionHeight = window.innerHeight + "px";
   
 
 
   return (
     
-    <section style={{ overflowY: 'auto', maxHeight: '730px' }}>
+    <section style={{ overflowY: 'scroll', height: '100vh' }}>
       <div  >
       
       <br />
@@ -76,7 +78,7 @@ const Vaci = () => {
       </div>
       <div className="table w-full h-12"> </div>
       
-      <table ref={tableRef} className="min-w-full divide-y divide-gray-200 p-8" >
+      <table ref={tableRef} className=" min-w-full divide-y divide-gray-200 p-8" >
         <thead className="bg-gray-200">
           <tr className="trHead">
             <th className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase ">
@@ -123,6 +125,12 @@ const Vaci = () => {
               <button className="bg-slate-400 bg-center place-content-center hover:bg-slate-700  text-white font-bold py-2 px-4 mt-6 rounded" onClick={() => handleButtonClick(cow)}>
               Modifica
               </button>
+              {modalOpen && (
+        <ModalModifAnimale
+          cow={selectedCow}
+          onClose={() => setModalOpen(false)}
+        />
+      )}
               
               
               </td>
@@ -132,23 +140,19 @@ const Vaci = () => {
       </table>
       </div>
       <div className="place-content-around  w-full flex ">
-        {/* <a href="/VaciFormular">
-          <button className="bg-slate-400 bg-center place-content-center hover:bg-slate-700  text-white font-bold py-2 px-4  mt-6 rounded">
-             Adauga animale
-          </button>
-          
-          </a> */}
-
-<a href="/VaciFormular">
-  <button className="bg-green-400 bg-center place-content-center hover:bg-green-500 text-white font-bold py-2 px-4 mt-6 rounded">
+ 
+<a href="/VaciFormular" style={{ height: '50vh' }}>
+  <button className="bg-green-400  bg-center place-content-center hover:bg-green-500 text-white font-bold py-2 px-4 mt-6 rounded">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-10 w-10">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
     </svg>
   </button>
 </a>
+
+</div>
        
           
-      </div>
+     
     </section>
    
   );

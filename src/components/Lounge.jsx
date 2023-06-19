@@ -26,7 +26,7 @@ const Lounge = () => {
 
 
   return (
-    <section className="text-gray-600 body-font">
+    <section className="text-gray-600 body-font" style={{ overflowY: 'scroll', height: '100vh' }}>
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
           <h2 className="text-xs text-green-500 tracking-widest font-medium title-font mb-1">
@@ -43,7 +43,7 @@ const Lounge = () => {
           </p>
         </div>
         <div className="flex flex-wrap ">
-          <div className="xl:w-1/3 lg:w-1/2 md:w-full px-8 py-6 border-l-2  border border-gray-500 p-4 rounded-lg text-center">
+          <div className="mx-4 xl:w-1/3 lg:w-1/2 md:w-full px-8 py-6 border-l-2  border border-gray-500 p-4 rounded-lg text-center">
             <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2 mx-auto">
               Îngrășare
             </h2>
@@ -76,7 +76,7 @@ const Lounge = () => {
               </svg>
             </a>
           </div>
-          <div className="xl:w-1/3 lg:w-1/2 md:w-full px-8 py-6 border-l-2  border border-gray-500 p-4 rounded-lg text-center">
+          <div className="mx-4 xl:w-1/3 lg:w-1/2 md:w-full px-8 py-6 border-l-2  border border-gray-500 p-4 rounded-lg text-center">
             <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
             Mentinere
             </h2>
@@ -106,7 +106,7 @@ const Lounge = () => {
               </svg>
             </a>
           </div>
-          <div className="xl:w-1/3 lg:w-1/2 md:w-full px-8 py-6 border-l-2  border border-gray-500 p-4 rounded-lg text-center">
+          <div className="mx-4 xl:w-1/3 lg:w-1/2 md:w-full px-8 py-6 border-l-2  border border-gray-500 p-4 rounded-lg text-center">
             <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">
             Alaptare
             </h2>
@@ -138,11 +138,7 @@ const Lounge = () => {
           </div>
           
         </div>
-        <Link to="/">
-          <button className="flex mx-auto mt-16 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">
-            Login
-          </button>
-        </Link>
+        
       </div>
     </section>
 

@@ -12,6 +12,7 @@ import Vaci from "./components/Vaci";
 import Navbar from "./components/Navbar"
 import VaciFormular from "./components/VaciFormular";
 import Cereale from "./components/Cereale";
+import PersistLogin from "./components/PersistLogin";
 
 import { Routes, Route } from "react-router-dom";
 import CerealeFormular from "./components/CerealeFormular";
@@ -37,6 +38,7 @@ function App() {
         <Route path="cerealeformular" element={<CerealeFormular/>} />
 
         {/* we want to protect these routes */}
+       
         <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
           <Route path="/" element={<Home />} />
         </Route>
@@ -51,7 +53,7 @@ function App() {
         >
           <Route path="lounge" element={<Lounge />} />
         </Route>
-
+    
         {/* catch all */}
         <Route path="*" element={<Missing />} />
       </Route>
