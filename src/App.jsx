@@ -36,6 +36,7 @@ function App() {
         <Route path="cereale" element={<Cereale />} />
         <Route path="vaciformular" element={<VaciFormular/>} />
         <Route path="cerealeformular" element={<CerealeFormular/>} />
+        <Route path="admin" element={<Admin />} />
 
         {/* we want to protect these routes */}
        
@@ -43,8 +44,8 @@ function App() {
           <Route path="/" element={<Home />} />
         </Route>
 
-        <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
-          <Route path="admin" element={<Admin />} />
+        <Route element={<RequireAuth allowedRoles={[ROLES.User,ROLES.Admin]} />}>
+          
           <Route path="/" element={<Home />} />
         </Route>
 
