@@ -2,9 +2,16 @@ import { Link } from "react-router-dom"
 
 function Navbar() {
 
+    const userFromStorage = JSON.parse(sessionStorage.getItem("user"));
+        console.log(userFromStorage.roles[0]);
+
+
+
+     
+
   return (
     <header>
-      <div className="flex items-center flex-grow p-1 py-2 bg-green-400">
+      <div className="flex items-center flex-grow p-1 py-2 bg-green-900">
         <Link to="Lounge">
           <div className="flex items-center flex-grow mt-2 sm:flex-grow-0">
             <img
@@ -17,7 +24,9 @@ function Navbar() {
             />
           </div>
         </Link>
-
+      { 
+        userFromStorage.roles[0] ==="Angajat" && <div className="flex items-center mx-6 space-x-6 text-xs text-white whitespace-nowrap">dad </div>
+      }
      
 
         <div className="flex items-center mx-6 space-x-6 text-xs text-white whitespace-nowrap">
@@ -37,7 +46,7 @@ function Navbar() {
        
         </div>
       </div>
-      <div className="flex items-center p-2 pl-6 space-x-4 text-sm text-green-500 bg-green-500 ">
+      <div className="flex items-center p-2 pl-6 space-x-4 text-sm text-green-700 bg-green-700 ">
         <p className="flex items-center font-bold link"> 
          A
         </p>

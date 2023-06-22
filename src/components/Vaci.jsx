@@ -28,6 +28,8 @@ const Vaci = () => {
     setSelectedCow(cow);
     console.log(cow)
     setModalOpen(true)
+    const userFromStorage = JSON.parse(sessionStorage.getItem("user"));
+    console.log(userFromStorage.roles);
   };
   
     const handleCloseModal = () => {
@@ -58,7 +60,7 @@ const Vaci = () => {
   const totalVarsta=cows.reduce((sum,cow)=> sum+cow.varsta,0)
   const averageVarsta=totalVarsta/cows.length
 
-  const sectionHeight = window.innerHeight + "px";
+  //const sectionHeight = window.innerHeight + "px";
   
 
 

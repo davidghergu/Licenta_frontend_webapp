@@ -16,6 +16,7 @@ import PersistLogin from "./components/PersistLogin";
 
 import { Routes, Route } from "react-router-dom";
 import CerealeFormular from "./components/CerealeFormular";
+import AdminJoburi from "./components/AdminJoburi";
 
 const ROLES = {
   User: "Angajat",
@@ -32,11 +33,13 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="linkpage" element={<LinkPage />} />
         <Route path="unauthorized" element={<Unauthorized />} />
-        <Route path="vaci" element={<Vaci />} />
+        
+       
         <Route path="cereale" element={<Cereale />} />
         <Route path="vaciformular" element={<VaciFormular/>} />
         <Route path="cerealeformular" element={<CerealeFormular/>} />
-        <Route path="admin" element={<Admin />} />
+        
+        <Route path="adminjoburi" element={<AdminJoburi />} />
 
         {/* we want to protect these routes */}
        
@@ -44,8 +47,10 @@ function App() {
           <Route path="/" element={<Home />} />
         </Route>
 
-        <Route element={<RequireAuth allowedRoles={[ROLES.User,ROLES.Admin]} />}>
-          
+        <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
+        <Route path="admin" element={<Admin />} />
+        <Route path="vaci" element={<Vaci />} />
+        
           <Route path="/" element={<Home />} />
         </Route>
 

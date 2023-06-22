@@ -32,10 +32,12 @@ const Login = () => {
       const token = utiliz[0]._id;
       const roles = [utiliz[0].rol];
       setAuth({ user, password, roles, token });
-      console.log({ user, password, roles, token });
+     // console.log({ user, password, roles, token });
       setUser("");
       setPwd("");
-      sessionStorage.setItem("user",{user,roles,token});
+      sessionStorage.setItem("user", JSON.stringify({user, roles, token}));
+
+     // sessionStorage.setItem("user",{user,roles,token});
       navigate("/lounge");
     } catch (err) {
       if (!err?.response) {
@@ -48,6 +50,10 @@ const Login = () => {
         setErrMsg("Login Failed");
       }
     }
+
+    const userFromStorage = JSON.parse(sessionStorage.getItem("user"));
+    console.log(userFromStorage.roles);
+    
   };
 
   //   const handleSubmit = async (e) => {
@@ -79,6 +85,7 @@ const Login = () => {
   //       }
   //     }
   //   };
+
 
   return (
     <section className="text-gray-600 body-font">

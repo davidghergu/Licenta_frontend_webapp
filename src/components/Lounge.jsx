@@ -42,7 +42,7 @@ const Lounge = () => {
             food truck ugh squid celiac humblebrag.
           </p>
         </div>
-        <div className="flex flex-wrap ">
+        <div className="flex flex-nowrap ">
           <div className="mx-4 xl:w-1/3 lg:w-1/2 md:w-full px-8 py-6 border-l-2  border border-gray-500 p-4 rounded-lg text-center">
             <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2 mx-auto">
               Îngrășare
