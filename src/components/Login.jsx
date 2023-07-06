@@ -36,6 +36,7 @@ const Login = () => {
       setUser("");
       setPwd("");
       sessionStorage.setItem("user", JSON.stringify({user, roles, token}));
+     
 
      // sessionStorage.setItem("user",{user,roles,token});
       navigate("/lounge");
@@ -52,39 +53,10 @@ const Login = () => {
     }
 
     const userFromStorage = JSON.parse(sessionStorage.getItem("user"));
-    console.log(userFromStorage.roles);
+    console.log(userFromStorage);
     
   };
 
-  //   const handleSubmit = async (e) => {
-  //     e.preventDefault();
-
-  //     try {
-  //       const response = await fetch(LOGIN_URL, {
-  //       method: "POST",
-  //       body: JSON.stringify({ nume: user, parola: password }),
-  //       headers: { "Content-Type": "application/json" },
-  // });
-  //       const utiliz = await response.json();
-  //       console.log(utiliz);
-  //       const token = utiliz.token;
-  //       const roles = [utiliz.role];
-  //       setAuth({ user, password, roles, token });
-  //       setUser("");
-  //       setPwd("");
-  //       navigate("/lounge");
-  //     } catch (err) {
-  //       if (!err?.response) {
-  //         setErrMsg("No Server Response");
-  //       } else if (err.response?.status === 400) {
-  //         setErrMsg("Missing Username or Password");
-  //       } else if (err.response?.status === 401) {
-  //         setErrMsg("Unauthorized");
-  //       } else {
-  //         setErrMsg("Login Failed");
-  //       }
-  //     }
-  //   };
 
 
   return (

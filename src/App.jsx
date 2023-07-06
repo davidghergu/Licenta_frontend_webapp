@@ -34,7 +34,7 @@ function App() {
         <Route path="linkpage" element={<LinkPage />} />
         <Route path="unauthorized" element={<Unauthorized />} />
         
-       
+        <Route path="vaci" element={<Vaci />} />
         <Route path="cereale" element={<Cereale />} />
         <Route path="vaciformular" element={<VaciFormular/>} />
         <Route path="cerealeformular" element={<CerealeFormular/>} />
@@ -49,7 +49,6 @@ function App() {
 
         <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
         <Route path="admin" element={<Admin />} />
-        <Route path="vaci" element={<Vaci />} />
         
           <Route path="/" element={<Home />} />
         </Route>
