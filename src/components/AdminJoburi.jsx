@@ -39,6 +39,18 @@ const AdminJoburi = () => {
       
     },[]);
 
+    useEffect(() => {
+      fetch(API_URL_VACA)
+      .then((response) => response.json())
+      .then(function(data){
+        setCows(Array.isArray(data) ? data : []);
+        setIsLoading(false);
+        
+      } );
+  
+      
+    },[]);
+
     console.log(diete)
 
   const handleSubmit = (event) => {
@@ -165,6 +177,13 @@ return(
         </div>
       </div>
     </div>
+
+    <select>
+  {cows.map(cow => (
+    <option key={cow.id} value={cow.id}>{cow.
+      numar_crotalii}</option>
+  ))}
+</select>
 
     <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-state">
         Categorie

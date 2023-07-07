@@ -39,42 +39,51 @@ function Navbar() {
         <div className="flex items-center mx-6 space-x-6 text-xs text-white whitespace-nowrap">
           
           <div className="link">
-            <p ><Link to="Vaci" className="font-extrabold md:text-lg ">Vite</Link></p>
+            <p ><Link to="Vaci" className="font-bold md:text-lg ">Vite</Link></p>
             
           </div>
           <div className="link">
-            <p ><Link to="Cereale" className="font-extrabold md:text-lg ">Cereale</Link></p>
+            <p ><Link to="Cereale" className="font-bold md:text-lg ">Cereale</Link></p>
             
           </div>
       
           <div className="link">
             <p>Retrurns</p>
-            <p className="font-extrabold md:text-sm">& Orders</p>
+            <p className="font-bold md:text-sm">& Orders</p>
           </div>
+
+
+          
           
 
-{userFromStorage && userFromStorage.roles && (userFromStorage.roles[0] === "Angajat" || userFromStorage.roles[0] === "Admin") && (
-  <div className="flex items-center mx-6 space-x-6 text-xs text-white whitespace-nowrap">{userFromStorage.roles[0]}</div>
+{userFromStorage && userFromStorage.roles && (
+  <div className="flex items-center mx-6 space-x-6 text-xs text-white whitespace-nowrap">
+    {userFromStorage.roles[0] === "Admin" && (
+      <p>
+        <Link to="Admin" className="font-bold md:text-lg">
+          Administrare Fermă
+        </Link>
+      </p>
+    )}
+    {userFromStorage.roles[0] === "Angajat" && <p> </p>}
+  </div>
 )}
+
         
         </div>
+        <div className="link ml-auto">
+    <p>
+      <Link to="/login" className=" font-bold text-white md:text-lg">
+        Logout
+      </Link>
+    </p>
+  </div>
       </div>
       <div className="flex items-center p-2 pl-6 space-x-4 text-sm text-green-700 bg-green-700 ">
         <p className="flex items-center font-bold link"> 
          A
         </p>
-        <p className="link"></p>
-        <p className="link"></p>
-        <p className="link"></p>
-        <p className="hidden link lg:inline-flex"></p>
-        <p className="hidden link lg:inline-flex"> </p>
-        <p className="hidden link lg:inline-flex"></p>
-        <p className="hidden link lg:inline-flex"></p>
-        <p className="hidden link lg:inline-flex"></p>
-        <p className="hidden link lg:inline-flex"></p>
-        <p className="hidden link lg:inline-flex"></p>
-        <p className="hidden link lg:inline-flex"></p>
-        <p className="hidden link lg:inline-flex"></p>
+        
       </div>
     </header>
   );

@@ -10,6 +10,7 @@ const Lounge = () => {
 
 
   useEffect(() => {
+    
     fetch(API_URL)
       .then(response => response.json())
       .then(data => {
