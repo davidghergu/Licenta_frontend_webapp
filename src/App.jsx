@@ -12,11 +12,15 @@ import Vaci from "./components/Vaci";
 import Navbar from "./components/Navbar"
 import VaciFormular from "./components/VaciFormular";
 import Cereale from "./components/Cereale";
-import PersistLogin from "./components/PersistLogin";
+import Events from "./components/Events";
+import EventsAcceptate from "./components/EventsAcceptate";
+import EventsIstoric from "./components/EventsIstoric";
 
 import { Routes, Route } from "react-router-dom";
 import CerealeFormular from "./components/CerealeFormular";
 import AdminJoburi from "./components/AdminJoburi";
+import Conturi from "./components/Conturi";
+
 
 const ROLES = {
   User: "Angajat",
@@ -29,6 +33,12 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         {/* public routes */}
+
+
+        <Route path="conturi" element={<Conturi />} />
+        <Route path="eventsistoric" element={<EventsIstoric />} />
+        <Route path="eventsacceptate" element={<EventsAcceptate />} />
+        <Route path="events" element={<Events />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="linkpage" element={<LinkPage />} />

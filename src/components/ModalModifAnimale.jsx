@@ -41,16 +41,7 @@ const handleChange = (event) => {
 
       console.log(formValues);
       console.log(formValues);
-      // fetch(API_URL_VACA, {
-      //   method: 'PUT',
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   },
-      //   body: JSON.stringify(formValues)
-      // })
-      // .then(response => response.json())
-      // .then(data => console.log(data))
-      // .catch(error => console.error(error));
+     
         fetch(API_URL_VACA, {
           method: 'PUT',
           headers: {

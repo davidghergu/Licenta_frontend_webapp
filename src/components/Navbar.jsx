@@ -48,8 +48,18 @@ function Navbar() {
           </div>
       
           <div className="link">
-            <p>Retrurns</p>
-            <p className="font-bold md:text-sm">& Orders</p>
+            <p><Link to="Events">Evenimente</Link></p>
+            <p className="font-bold md:text-sm"> Trimise</p>
+          </div>
+
+          <div className="link">
+            <p><Link to="Eventsacceptate">Evenimente</Link></p>
+            <p className="font-bold md:text-sm">Accepate</p>
+          </div>
+
+          <div className="link">
+            <p><Link to="Eventsistoric">Istoric</Link></p>
+            <p className="font-bold md:text-sm">Evenimente</p>
           </div>
 
 

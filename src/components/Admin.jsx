@@ -74,7 +74,7 @@ const Admin = () => {
 
 
        <div className="flex flex-nowrap ">
-       <div className="mx-4 xl:w-1/3 lg:w-1/2 md:w-full px-8 py-6 border-l-2  border border-gray-500 p-4 rounded-lg text-center">
+       <div className="mx-4 xl:w-1/2 lg:w-1/2 md:w-full px-8 py-6 border-l-2  border border-gray-500 p-4 rounded-lg text-center">
             <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2 mx-auto">
               Evenimente
             </h2>
@@ -100,41 +100,18 @@ const Admin = () => {
           </div>
 
 
-          <div className="mx-4 xl:w-1/3 lg:w-1/2 md:w-full px-8 py-6 border-l-2  border border-gray-500 p-4 rounded-lg text-center">
+          
+          <div className="mx-4 xl:w-1/2 lg:w-1/2 md:w-full px-8 py-6 border-l-2  border border-gray-500 p-4 rounded-lg text-center">
             <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2 mx-auto">
-              Rețete
+              Cont angajat
             </h2>
             
             <div ref={tableRef} className="min-w-full divide-y divide-gray-200 p-8">
 </div>
 
 
-            <a className="text-green-500 inline-flex items-center" href="AdminJoburi">
-              Creare rețetă
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-4 h-4 ml-2"
-                viewBox="0 0 24 24"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </a>
-          </div>
-          <div className="mx-4 xl:w-1/3 lg:w-1/2 md:w-full px-8 py-6 border-l-2  border border-gray-500 p-4 rounded-lg text-center">
-            <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2 mx-auto">
-              Rețete
-            </h2>
-            
-            <div ref={tableRef} className="min-w-full divide-y divide-gray-200 p-8">
-</div>
-
-
-            <a className="text-green-500 inline-flex items-center" href="AdminJoburi">
-              Creare rețetă
+            <a className="text-green-500 inline-flex items-center" href="Conturi">
+              Creare cont angajat
               <svg
                 fill="none"
                 stroke="currentColor"
